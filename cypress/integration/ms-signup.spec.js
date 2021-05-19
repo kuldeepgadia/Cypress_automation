@@ -13,7 +13,7 @@ it('Click Sign up button', () => {
    .find('.together-button', { includeShadowDom: true })
    .find('.button-text', { includeShadowDom: true,timeout: 10000 }).should('be.visible')
    .contains('Sign up') .click({force: true});
-   cy.location('href').should('eq', 'https://ms.healthline.com/registration/STEP_ONE');
+   cy.location('href').should('eq', Cypress.config('baseUrl')+'/registration/STEP_ONE');
 });  
 
 it('Enter email ID and click Continue button on Signup - STEP_ONE page', () => {
@@ -27,16 +27,16 @@ it('Enter email ID and click Continue button on Signup - STEP_ONE page', () => {
    .get('app-registration', { includeShadowDom: true })
    .find('.left-panel', { includeShadowDom: true })
    .find('.together-input-field', { includeShadowDom: true })
-   .find('input', { includeShadowDom: true ,timeout: 10000 }).should('be.visible').type('boss87992@healthline.com');
+   .find('input', { includeShadowDom: true ,timeout: 10000 }).should('be.visible').type(Cypress.config('user')+'@healthline.com');
    cy
    .get('.together-input-container', { includeShadowDom: true })
    .find('.input-button', { includeShadowDom: true ,timeout: 10000 }).should('be.visible')
    .contains('Continue') .click({force: true});
-   cy.location('href').should('eq', 'https://ms.healthline.com/registration/STEP_TWO');
+   cy.location('href').should('eq', Cypress.config('baseUrl')+'/registration/STEP_TWO');
 }); 
 
 it('Fill form fields on Signup - STEP_TWO page', () => {
-   cy.wait(3000);
+   cy.wait(5000);
    cy
    .get('app-registration.ion-page.hydrated.can-go-back', { includeShadowDom: true })
    .find('.together-input-field', { includeShadowDom: true })
@@ -54,7 +54,7 @@ it('Fill form fields on Signup - STEP_TWO page', () => {
 
     cy
     .get('app-registration.ion-page.hydrated.can-go-back', { includeShadowDom: true })
-    .find('input[placeholder="Create a username"]', { includeShadowDom: true ,timeout: 10000 }).should('be.visible').type('boss87992');
+    .find('input[placeholder="Create a username"]', { includeShadowDom: true ,timeout: 10000 }).should('be.visible').type(Cypress.config('user'));
 
     
     cy
@@ -71,7 +71,7 @@ it('Fill form fields on Signup - STEP_TWO page', () => {
     cy
     .get('app-registration.ion-page.hydrated.can-go-back', { includeShadowDom: true })
     .find('.together-button', { includeShadowDom: true,timeout: 10000 }).should('be.visible').click({force: true});
-    cy.wait(3000);
+    cy.wait(5000);
  }); 
 
 });

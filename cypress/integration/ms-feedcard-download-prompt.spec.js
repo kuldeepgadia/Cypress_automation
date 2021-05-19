@@ -3,7 +3,8 @@ describe('Feedback Download prompt & Learn More popup tests',  {
    viewportWidth: 1366,
  }, () => {
   it('should open home page', () => {
-    cy.visit('https://ms.healthline.com');
+       cy.visit('/');
+
     cy.title().should('eq', 'MS Healthline');
  cy.wait(5000);
  });
@@ -15,6 +16,36 @@ describe('Feedback Download prompt & Learn More popup tests',  {
    .find('together-button', { includeShadowDom: true })
    .click({force: true});
 });
+
+it('Drill down to a Live Discussion Group Channel', () => {
+    
+   cy
+   .get('together-group-list-item', { includeShadowDom: true })
+   .find('.group-list-item-label', { includeShadowDom: true })
+   .contains('Live Discussions').click({force: true});
+
+   cy.wait(3000);
+  // cy.get('main', { includeShadowDom: true }).scrollTo(900,890);
+ 
+   cy
+   .get('together-reply', { includeShadowDom: true })
+   .find('.more-link', { includeShadowDom: true })
+   .contains('See all replies...').click({force: true});
+
+   cy
+   .get('together-thread-title', { includeShadowDom: true })
+   .find('.thread-title-label', { includeShadowDom: true })
+   .should('contain', 'All replies');
+
+  
+   cy
+   .get('ion-router-link', { includeShadowDom: true })
+   .find('together-nav-item', { includeShadowDom: true })
+   .find('.nav-item-label', { includeShadowDom: true })
+   .should('contain', 'Home').click({force: true});
+
+});  
+
 
 it('Feedcard Download prompt should display for Unregistered flow', () => {
    cy.wait(3000);

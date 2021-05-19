@@ -18,7 +18,7 @@ it('Logo is not broken', () => {
    .find('app-header', { includeShadowDom: true })
    .find('header', { includeShadowDom: true })
    .find('.left-pane')
-   .find('.logo-holder', { includeShadowDom: true })
+   .find('.desktop .logo-holder', { includeShadowDom: true })
    .find('img')
    .invoke('attr', 'src').should('contain', '/assets/logo.svg');
      

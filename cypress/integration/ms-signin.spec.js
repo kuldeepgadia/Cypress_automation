@@ -12,11 +12,11 @@ it('Click Log in link', () => {
    .find('together-highlight-text', { includeShadowDom: true })
    .find('.together-highlight-text', { includeShadowDom: true ,timeout: 10000 }).should('be.visible')
    .contains('Log In') .click({force: true});
-   cy.wait(3000);
-   cy.location('href').should('eq', 'https://ms.healthline.com/signin/SIGNIN');
+   cy.wait(5000);
+   cy.location('href').should('eq', Cypress.config('baseUrl')+'/signin/SIGNIN');
 });  
 
-it('Enter email ID and click Continue button on Signup - STEP_ONE page', () => {
+it('Enter email ID , Password and click Login button on SignIn page', () => {
   cy
    .get('app-signin', { includeShadowDom: true })
    .find('.left-panel', { includeShadowDom: true })
@@ -28,7 +28,7 @@ it('Enter email ID and click Continue button on Signup - STEP_ONE page', () => {
    .get('app-signin', { includeShadowDom: true })
    .find('.left-panel', { includeShadowDom: true })
    .find('.together-input-field', { includeShadowDom: true })
-   .find('input[name="name"]', { includeShadowDom: true ,timeout: 10000 }).should('be.visible').type('{selectall}{backspace}{selectall}{backspace}').type('boss87992@healthline.com');
+   .find('input[name="name"]', { includeShadowDom: true ,timeout: 10000 }).should('be.visible').type('{selectall}{backspace}{selectall}{backspace}').type(Cypress.config('user')+'@healthline.com');
   
    cy
    .get('app-signin', { includeShadowDom: true })
@@ -45,7 +45,7 @@ it('Enter email ID and click Continue button on Signup - STEP_ONE page', () => {
    .find('.button-text', { includeShadowDom: true ,timeout: 10000 }).should('be.visible')
    .contains('Log in').click({force: true});
 
-   cy.wait(7000);
+   cy.wait(5000);
 
 }); 
 

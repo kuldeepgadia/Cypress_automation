@@ -7,7 +7,7 @@ describe('Logout Flow tests',  {
    .get('.registered-options', { includeShadowDom: true })
    .find('.logout-link .together-highlight-text', { includeShadowDom: true })
    .contains('Log out').click({force: true});
-   cy.wait(5000);
+   cy.wait(3000);
  });
 })
 
