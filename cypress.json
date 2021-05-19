@@ -1,5 +1,6 @@
 {
-  "baseUrl": "http://localhost:5000",  
+  "baseUrl": "https://ms.healthline.com", 
+  "user": "boss87999", 
   "experimentalShadowDomSupport": true,
   "pageLoadTimeout": 100000,
   "chromeWebSecurity": false,
@@ -8,6 +9,7 @@
     "ms-signup.spec.js",
     "ms-logout.spec.js",
     "ms-signin.spec.js",
+    "ms-post-on-a-group.spec.js",
     "ms-delete-user.spec.js"
      ]
  }
