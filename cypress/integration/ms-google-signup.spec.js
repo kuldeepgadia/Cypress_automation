@@ -28,6 +28,18 @@ it('Logo is not broken', () => {
      
 });  
 
+it('Click Facebook Sign up button', () => {
+  cy.visit("https://facebook.com");
+ 
+   cy.wait(5000);
+   cy.get('input[name="email"]').type('dipti.gorecha@prodigyinfosoft.com');
+   cy.get('input[name="pass"]').type('prodigy1969');
+   //cy.get('input[type="checkbox"]').click({force:true});
+   cy.get('button[name="login"]').click({force:true});
+   cy.wait(5000);
+  });
+
+
 it('Click Sign up button', () => {
   cy
   .get('ion-app')
@@ -41,14 +53,6 @@ it('Click Sign up button', () => {
  // cy.location('href').should('eq', 'https://psa.healthline.com/registration/STEP_ONE');
 }); 
 
-it('Click Facebook Sign up button', () => {
-  cy
-   .get('app-registration', { includeShadowDom: true})
-   .find('.left-panel', { includeShadowDom: true,timeout: 10000 }).should('be.visible')
-   .find('.facebook', { includeShadowDom: true,timeout: 10000 }).eq(0).should('be.visible').click({force: true});
-   cy.wait(312000);
-
-  });
 
 it.skip('Click Google Sign up button', () => {
         

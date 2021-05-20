@@ -8,7 +8,7 @@ it('Drill down to Healthline Group channel and post a message', () => {
    cy
    .get('together-group-list-item', { includeShadowDom: true })
    .find('.group-list-item-label', { includeShadowDom: true })
-   .contains('Healthline').click({force: true});
+   .contains('Live Discussions').click({force: true});
 
    cy.wait(3000);
 

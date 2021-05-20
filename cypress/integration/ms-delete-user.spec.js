@@ -13,17 +13,17 @@ describe('Delete User flow tests',  {
       .get('.registered-options', { includeShadowDom: true })
       .find('.delete-link .together-highlight-text', { includeShadowDom: true })
       .contains('Delete Account').click({force: true});
-      cy.wait(5000);
+     // cy.wait(5000);
     });
 
     it('Click Delete button from Delete Account popup', () => {
 
-    
+      cy.on('window:confirm', () => true);
       cy
       .get('.confirmation-footer > div', { includeShadowDom: true }).eq(1)
       .should('contain','Delete account')
-      .invoke('trigger', 'focus')
-      .click({force: true});
+      .invoke('show')
+      .click();
 
       cy
       .get('together-group-list-item', { includeShadowDom: true })

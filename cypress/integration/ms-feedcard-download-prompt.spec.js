@@ -3,7 +3,7 @@ describe('Feedback Download prompt & Learn More popup tests',  {
    viewportWidth: 1366,
  }, () => {
   it('should open home page', () => {
-       cy.visit('/');
+       cy.visit('https://together-msb-stage-web.healthline.com/');
 
     cy.title().should('eq', 'MS Healthline');
  cy.wait(5000);
