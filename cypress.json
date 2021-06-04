@@ -2,14 +2,11 @@
   "baseUrl": "https://ms.healthline.com", 
   "user": "boss88002",
   "experimentalShadowDomSupport": true,
+  "experimentalNetworkStubbing": true,
   "pageLoadTimeout": 100000,
   "chromeWebSecurity": false,
   "testFiles": [
-    "ms-feedcard-download-prompt.spec.js",
-    "ms-signup.spec.js",
-    "ms-logout.spec.js",
-    "ms-signin.spec.js",
-    "ms-post-on-a-group.spec.js",
-    "ms-delete-user.spec.js"
+    "ms-stage-combined.spec.js",
+    "ms-prod-combined.spec.js"
       ]
  }
